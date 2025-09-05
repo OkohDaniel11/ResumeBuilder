@@ -16,7 +16,7 @@ body {
     width: 100%;
     height: 50vh;
     overflow: hidden;
-    background: linear-gradient(to right, #F83E3E, #922424);
+    background: linear-gradient(to right, #F83E3E,  #922424 45%);
     border-bottom-left-radius: 3%;
     border-bottom-right-radius: 3%;
 }
@@ -29,14 +29,19 @@ body {
 /* Logo */
 .logo-container {
     position: relative;
-    right: 40%;
+    right: 35%;
 }
 
 .logo {
+    position: relative;
+    top: 10px;
     height: 50px;
     width: 50px;
     display: flex;
     justify-content: center;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.4s;
 }
 
 .glass {
@@ -62,6 +67,30 @@ body {
     right: 2px;
 }
 
+/* The background fill */
+.logo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.25); /* light glass fill */
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    z-index: -1;
+    transition: left 0.3s ease;
+}
+
+.logo:hover::before {
+    left: 0;
+}
+
+/* Optional: text turns dark when background fills */
+.logo a span:hover {
+    color: #000;
+}
+
 /* Hamburger Mobile */
 
 .hamuburger {
@@ -73,6 +102,50 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 2rem;
+}
+
+nav ul li {
+    display: inline-block;
+    position: relative;
+    left: -100px;
+    top: 15px;
+    overflow: hidden;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 5px 0;
+    transition: 0.4s;
+}
+
+
+/* The background fill */
+nav ul li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.25); /* light glass fill */
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    z-index: -1;
+    transition: left 0.3s ease;
+}
+
+/* On hover, slide in the fill */
+nav ul li:hover::before {
+    left: 0;
+}
+
+/* Optional: text turns dark when background fills */
+nav ul li a:hover {
+    color: #000;
 }
 
 /* ==========
