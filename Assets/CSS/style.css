@@ -162,6 +162,18 @@ nav ul li a:hover {
     color: #000;
 }
 
+.dropdown {
+    height: 200px;
+    width: 100%;
+    border: 1px solid black;
+    position: relative;
+    top: 5%;
+}
+
+.dropdown ul {
+    display: grid;
+}
+
 /* ==========
     End of Home Page
     ========== */
