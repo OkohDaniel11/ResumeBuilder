@@ -178,6 +178,7 @@ nav ul li a:hover {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0;
+    width: 200px;
 }
 
 /* ==========
