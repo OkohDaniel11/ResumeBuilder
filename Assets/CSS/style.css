@@ -3,7 +3,7 @@ body {
     margin: 0;
     background-color: #f2f2f2;
 } 
-
+ 
 /* ==========
     Start of Home Page
     ========== */
@@ -44,6 +44,7 @@ body {
     transition: 0.4s;
 }
 
+/*Glass Funcion*/
 .glass {
     background: rgba(255, 255, 255, 0.15); /* transparent white */
     backdrop-filter: blur(10px); /* blur behind */
@@ -60,6 +61,8 @@ body {
     font-size: 1.8rem;
     font-weight: 100;
     position: relative;
+    color: white;
+    transition: color 0.3s ease-in;
 }
 
 .Blow{
@@ -87,14 +90,11 @@ body {
 }
 
 /* Optional: text turns dark when background fills */
-.logo a span:hover {
+.logo:hover  span{
     color: #000;
 }
 
 /* Hamburger Mobile */
-
-
-
 .hamburger {
     width: 35px;
     height: 25px;
@@ -115,7 +115,7 @@ body {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 nav ul li {
@@ -124,6 +124,7 @@ nav ul li {
     left: -100px;
     top: 15px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 nav ul li a {
@@ -142,8 +143,8 @@ nav ul li::before {
     content: "";
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
+    left: -103%;
+    width: 103%;
     height: 100%;
     background: rgba(255, 255, 255, 0.25); /* light glass fill */
     backdrop-filter: blur(5px);
@@ -158,10 +159,11 @@ nav ul li:hover::before {
 }
 
 /* Optional: text turns dark when background fills */
-nav ul li a:hover {
+nav ul li:hover a {
     color: #000;
 }
 
+/*Dropdow Nav*/
 .dropdown {
     height: 300px;
     width: 85%;
@@ -210,15 +212,17 @@ nav ul li a:hover {
 .dropdown ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-    width: 500px;
+    gap: 30px;
+    width: 600px;
     position: relative;
     top: 5%;
     left: 5%;
+    list-style: none;
 }
 
 .dropdown ul li {
     list-style: none;
+    overflow: hidden;
 }
 
 .dropdown ul li a {
@@ -226,19 +230,50 @@ nav ul li a:hover {
     font-weight: 100;
     font-size: 20px;
     color: black;
-    position: relative;
     text-decoration: none;
+    align-items: center;
+    justify-content: space-between;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
-.dropdown ul li p{
-    font-family: 'Poppins', sans-serif;
-    font-weight: 100;
-    font-size: 13px;
-    color: grey;
-    position: relative;
-    width: 200px;
-    bottom: 12px;
-    text-decoration: none;
+.dropdown ul li a:hover {
+    color: #c22c2c;
+}
+
+.dropdown ul li a .arrow {
+  transform: translateX(700%);   /* hidden to the right */
+  transition: transform 0.3s ease-in-out;
+}
+
+.dropdown ul li a:hover .arrow {
+  transform: translateX(0);      /* slides in on hover */
+  color: #c22c2c;
+}
+
+.dropdown ul li a .arrows {
+  transform: translateX(1300%);   /* hidden to the right */
+  transition: transform 0.3s ease-in-out;
+}
+
+.dropdown ul li a:hover .arrows {
+  transform: translateX(0);      /* slides in on hover */
+  color: #c22c2c;
+}
+
+.dropdown ul li p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 100;
+  font-size: 13px;
+  color: grey;
+  margin: 5px 0 0 0;             /* spacing under link */
+  line-height: 1.4;
+  max-width: 250px;
+}
+
+.Middledropdown {
+    display: grid;
 }
 
 
