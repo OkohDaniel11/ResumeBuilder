@@ -274,7 +274,53 @@ nav ul li:hover a {
 
 .Middledropdown {
     display: grid;
+    width: 300px;
 }
+
+.Middledropdown h2 {
+    font-size: 25px;
+    position: relative;
+    top: 30%;
+    left: 15%;
+}
+
+.Middledropdown ol {
+    list-style: none;
+    position: relative;
+    left: 2%;
+    bottom: 5%;
+}
+
+.Middledropdown ol li {
+    padding: 4px 0px 4px 0px;
+    overflow: hidden;
+    width: 150px;
+}
+
+.Middledropdown ol li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+.Middledropdown ol li a:hover {
+    color: #c22c2c;
+}
+
+.Middledropdown ol li a .arrow {
+    transform: translateX(600%);   /* hidden to the right */
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    left: 5%;
+}
+
+.Middledropdown ol li a:hover .arrow {
+  transform: translateX(0);      /* slides in on hover */
+  color: #c22c2c;
+}
+
+
 
 
 
