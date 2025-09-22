@@ -42,6 +42,7 @@ body {
     text-decoration: none;
     overflow: hidden;
     transition: 0.4s;
+    border-radius: 60px;
 }
 
 /*Glass Funcion*/
@@ -50,7 +51,6 @@ body {
     backdrop-filter: blur(10px); /* blur behind */
     -webkit-backdrop-filter: blur(10px); /* Safari support */
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 60px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     padding: 15px;
     color: white;
@@ -125,6 +125,7 @@ nav ul li {
     top: 15px;
     overflow: hidden;
     cursor: pointer;
+    border-radius: 30px;
 }
 
 nav ul li a {
@@ -355,6 +356,8 @@ nav ul li:hover a {
 }
 
 /*Article Section */
+
+/*Intro Header*/
 .Intro {
     text-align: center;
     position: relative;
@@ -366,25 +369,36 @@ nav ul li:hover a {
     font-size: 45px;
     text-align: justify;
     position: relative;
-    left: 30%;
+    left: 40.2%;
     transform: translateX(-50%);
-    bottom: 40px;
-    width: 605px;
+    top: 15px;
+    width: 740px;
 }
 
+/*Span*/
 .Intro h1 span {
     color: #f3f3f3;
     padding: 0;
 }
 
+/*Intro Paragraph*/
 .Intro p {
     position: relative;
     top: 200px;
-    right: 150px;
-    width: 600px;
-    font-size: 25px;
+    right: 330px;
+    width: 500px;
+    font-size: 24px;
     text-align: justify;
     color: #f3f3f3;
+}
+
+/*Intro Buttons*/
+.IntroButtons {
+    position: relative;
+    top: 190px;
+    right: 90px;
+    gap: 10%;
+    display: flex;
 }
 
 
