@@ -71,7 +71,8 @@ body {
 }
 
 /* The background fill */
-.logo::before {
+.logo::before,
+.buttons::before {
     content: "";
     position: absolute;
     top: 0;
@@ -85,7 +86,8 @@ body {
     transition: left 0.3s ease;
 }
 
-.logo:hover::before {
+.logo:hover::before,
+.buttons:hover::before {
     left: 0;
 }
 
@@ -396,15 +398,18 @@ nav ul li:hover a {
 .IntroButtons {
     position: relative;
     top: 190px;
-    right: 90px;
-    gap: 15%;
+    right: 210px;
+    gap: 8%;
     display: flex;
 }
 
 .IntroButtons button {
-    border-radius: 30px;
+    border-radius: 20px;
     font-size: 20px;
     cursor: pointer;
+    width: 280px;
+    height: 60px;
+    overflow: hidden;
 }
 
 
