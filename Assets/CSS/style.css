@@ -123,7 +123,7 @@ nav ul {
 nav ul li {
     display: inline-block;
     position: relative;
-    left: -45px;
+    left: -40px;
     top: 15px;
     overflow: hidden;
     cursor: pointer;
@@ -411,6 +411,8 @@ nav ul li:hover a {
     height: 60px;
     overflow: hidden;
 }
+
+/*Middle*/
 
 
 
