@@ -413,9 +413,54 @@ nav ul li:hover a {
 }
 
 /*Middle*/
+.sponsor-marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 80px; /* adjust based on logo size */
+}
 
+.marquee-track {
+  display: flex;
+  gap: 3rem; /* space between logos */
+  animation: scroll-left 20s linear infinite;
+}
 
+.marquee-track img {
+  height: 50px; /* control logo size */
+  object-fit: contain;
+}
 
+/* Animation: move logos from left to right */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Fade effect on edges */
+.sponsor-marquee::before,
+.sponsor-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 80px; /* fade width */
+  height: 100%;
+  z-index: 2;
+}
+
+.sponsor-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, white 0%, transparent 100%);
+}
+
+.sponsor-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, white 0%, transparent 100%);
+}
 
 
 /* ==========
