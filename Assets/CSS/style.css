@@ -413,6 +413,10 @@ nav ul li:hover a {
 }
 
 /*Middle*/
+.MiddleIntro {
+    display: flex;
+    justify-content: space-between;
+}
 .sponsor-marquee {
   position: relative;
   overflow: hidden;
