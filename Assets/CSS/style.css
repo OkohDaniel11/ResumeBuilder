@@ -441,7 +441,7 @@ nav ul li:hover a {
 .marquee-track {
   display: flex;
   gap: 3rem; /* space between logos */
-  animation: scroll-left 20s linear infinite;
+  animation: scroll-left 25s linear infinite;
 }
 
 .marquee-track img {
