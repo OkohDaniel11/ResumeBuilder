@@ -480,6 +480,11 @@ nav ul li:hover a {
   background: linear-gradient(to left, rgba(255, 255, 255, 0.404) 0%, transparent 100%);
 }
 
+.Hype h3 {
+    font-size: 30px;
+    color: #FD0606;
+}
+
 
 /* ==========
     End of Home Page
