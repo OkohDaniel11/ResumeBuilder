@@ -483,7 +483,7 @@ nav ul li:hover a {
 .Hype h3 {
     font-size: 60px;
     color: #FD0606;
-    width: 60%;
+    width: 30%;
 }
 
 .Hype div:first-child h3 {
@@ -491,15 +491,17 @@ nav ul li:hover a {
     left: 20px;
     bottom: 50px;
 }
+
 .Hype div:nth-child(2) h3 {
     position: relative;
     left: 190px;
     bottom: 160px;
 }
+
 .Hype div:nth-child(3) h3 {
     position: relative;
-    left: 420px;
-    bottom: 280px;
+    left: 440px;
+    bottom: 270px;
 }
 
 
