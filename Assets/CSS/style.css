@@ -516,11 +516,6 @@ nav ul li:hover a {
     bottom: 50px;
 }
 
-.Hype div:first-child h3 span {
-    font-size: 40px;
-    color: rgb(238, 169, 169);
-}
-
 .Hype div:first-child p {
     position: relative;
     left: 50px;
@@ -535,11 +530,6 @@ nav ul li:hover a {
     position: relative;
     left: 160px;
     bottom: 172px;
-}
-
-.Hype div:nth-child(2) h3 span {
-    font-size: 40px;
-    color: rgb(238, 169, 169);
 }
 
 .Hype div:nth-child(2) p {
@@ -558,11 +548,6 @@ nav ul li:hover a {
     bottom: 290px;
 }
 
-.Hype div:nth-child(3) h3 span {
-    font-size: 40px;
-    color: rgb(238, 169, 169);
-}
-
 .Hype div:nth-child(3) p {
     position: relative;
     left: 470px;
@@ -572,6 +557,20 @@ nav ul li:hover a {
     color: grey;
     text-transform: capitalize;
 }
+
+.Hype div h3 span {
+    font-size: 40px;
+    color: rgb(238, 169, 169);
+}
+
+.Hype div h3 span:hover {
+    color: #FD0606;
+    font-size: 45px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
 /*End of Hype Section*/
 
 .MiddleRight {
@@ -581,7 +580,7 @@ nav ul li:hover a {
 
 .MiddleRight article {
     position: relative;
-    right: 450px;
+    right: 480px;
 }
 
 .MiddleRight div {
