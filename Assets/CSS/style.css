@@ -193,7 +193,7 @@ nav ul li:hover a {
     pointer-events: auto;
 }
 
-/*Dropdow Nav*/
+/*Resume Dropdow Nav*/
 /* ...existing code... */
 
 .dropdown .NavHeader {
@@ -302,6 +302,8 @@ nav ul li:hover a {
   max-width: 300px;
 }
 
+/*Middle Dropdown*/
+
 .Middledropdown {
     display: grid;
     width: 300px;
@@ -352,10 +354,14 @@ nav ul li:hover a {
   color: #c22c2c;
 }
 
+/*End Of Middle Part*/
+
 .Lastdropdown {
     position: relative;
     right: 5%;
 }
+
+/*End Resume Nav Dropdown*/
 
 /*Article Section */
 
@@ -394,7 +400,8 @@ nav ul li:hover a {
     color: #f3f3f3;
 }
 
-/*Intro Buttons*/
+/*Intro Create/Import Buttons*/
+
 .IntroButtons {
     position: relative;
     top: 190px;
@@ -412,29 +419,38 @@ nav ul li:hover a {
     overflow: hidden;
 }
 
+/*End of Intro Create/Import Buttons*/
+
+/*End of Top Section*/
+
 /*Middle*/
+
 .MiddleIntro {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    overflow: hidden;
+    width: 100%;
+    height: 140vh;
+    position: relative;
+    bottom: 190px;
 }
 
-.MiddleLeft{
-    position: relative;
-    bottom: 150px;
-    left: 50px;
-}
 
 .MiddleLeft h2 {
     text-transform: capitalize;
     font-size: 40px;
     position: relative;
-    left: 60px;
+    left: 90px;
+    width: 40%;
 }
+
+/*Animated Hired Box*/
 
 .sponsor-marquee {
   position: relative;
+  right: 50px;
   overflow: hidden;
-  width: 50%;
+  width: 55%;
   height: 140px; /* adjust based on logo size */
 }
 
@@ -472,12 +488,20 @@ nav ul li:hover a {
 
 .sponsor-marquee::before {
   left: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.404) 0%, transparent 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.048) 0%, transparent 100%);
 }
 
 .sponsor-marquee::after {
   right: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0.404) 0%, transparent 100%);
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.048) 0%, transparent 100%);
+}
+
+/*End of Animated Hired Box*/
+
+/*Hype Section*/
+.Hype {
+    position: relative;
+    left: 5%;
 }
 
 .Hype h3 {
@@ -492,18 +516,97 @@ nav ul li:hover a {
     bottom: 50px;
 }
 
+.Hype div:first-child h3 span {
+    font-size: 40px;
+    color: rgb(238, 169, 169);
+}
+
+.Hype div:first-child p {
+    position: relative;
+    left: 50px;
+    bottom: 110px;
+    width: 300px;
+    font-size: 30px;
+    color: grey;
+    text-transform: capitalize;
+}
+
 .Hype div:nth-child(2) h3 {
     position: relative;
-    left: 190px;
-    bottom: 160px;
+    left: 160px;
+    bottom: 172px;
+}
+
+.Hype div:nth-child(2) h3 span {
+    font-size: 40px;
+    color: rgb(238, 169, 169);
+}
+
+.Hype div:nth-child(2) p {
+    position: relative;
+    left: 230px;
+    bottom: 230px;
+    width: 300px;
+    font-size: 30px;
+    color: grey;
+    text-transform: capitalize;
 }
 
 .Hype div:nth-child(3) h3 {
     position: relative;
-    left: 440px;
-    bottom: 270px;
+    left: 410px;
+    bottom: 290px;
 }
 
+.Hype div:nth-child(3) h3 span {
+    font-size: 40px;
+    color: rgb(238, 169, 169);
+}
+
+.Hype div:nth-child(3) p {
+    position: relative;
+    left: 470px;
+    bottom: 350px;
+    width: 300px;
+    font-size: 30px;
+    color: grey;
+    text-transform: capitalize;
+}
+/*End of Hype Section*/
+
+.MiddleRight {
+    position: relative;
+    
+}
+
+.MiddleRight article {
+    position: relative;
+    right: 450px;
+}
+
+.MiddleRight div {
+    border: 1px solid black;
+    border-radius: 15PX;
+    height: 360px;
+    width: 280px;
+}
+
+.MiddleRight div:first-child {
+    position: relative;
+    left: 30px;
+}
+
+.MiddleRight div:nth-child(2) {
+    position: relative;
+    bottom: 120px;
+    right: 280px;
+}
+
+.MiddleRight div:nth-child(3) {
+    position: relative;
+    bottom: 320px;
+    left: 30px;
+}
 
 /* ==========
     End of Home Page
