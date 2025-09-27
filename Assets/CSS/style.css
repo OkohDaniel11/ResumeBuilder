@@ -146,7 +146,7 @@ nav ul li::before {
     content: "";
     position: absolute;
     top: 0;
-    left: -103%;
+    left: -108%;
     width: 103%;
     height: 100%;
     background: rgba(255, 255, 255, 0.25); /* light glass fill */
