@@ -226,9 +226,10 @@ nav ul li:hover a {
 }
 
 .GuruImages div {
-    height: 60px;
-    width: 70px;
+    height: 65px;
+    width: 100px;
     border: 1px solid black;
+    border-radius: 10px;
 }
 
 
