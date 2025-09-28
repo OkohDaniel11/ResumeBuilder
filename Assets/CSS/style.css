@@ -437,6 +437,11 @@ nav ul li:hover a {
 
 /*Article Section */
 
+.homepageMiddlesection {
+    width: 100%;
+    height: 100vh;
+}
+
 /*Intro Header*/
 .Intro {
     text-align: center;
@@ -500,11 +505,9 @@ nav ul li:hover a {
 .MiddleIntro {
     display: flex;
     justify-content: space-around;
-    overflow: hidden;
-    width: 100%;
-    height: 140vh;
     position: relative;
     bottom: 190px;
+    overflow: hidden;
 }
 
 
@@ -647,7 +650,6 @@ nav ul li:hover a {
 
 .MiddleRight {
     position: relative;
-    
 }
 
 .MiddleRight article {
@@ -660,6 +662,7 @@ nav ul li:hover a {
     border-radius: 15PX;
     height: 360px;
     width: 280px;
+    overflow: hidden;
 }
 
 .MiddleRight div:first-child {
@@ -669,13 +672,13 @@ nav ul li:hover a {
 
 .MiddleRight div:nth-child(2) {
     position: relative;
-    bottom: 120px;
-    right: 280px;
+    bottom: 160px;
+    right: 270px;
 }
 
 .MiddleRight div:nth-child(3) {
     position: relative;
-    bottom: 320px;
+    bottom: 340px;
     left: 30px;
 }
 
