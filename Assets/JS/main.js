@@ -1,61 +1,106 @@
 // Dropdown behavior for ResumeBuilder
 document.addEventListener('DOMContentLoaded', function () {
+	// Resume Dropdown
 	const dropdownToggle = document.getElementById('dropdownMenuTwo');
 	const dropdown = document.querySelector('.dropdown');
-
-	if (!dropdownToggle || !dropdown) return;
+	// Resource Dropdown
+	const resourceToggle = document.getElementById('resourceMenu');
+	const resourceDropdown = document.querySelector('.resource-dropdown');
 
 	let closeTimer = null;
-	const CLOSE_DELAY = 150; // ms - small delay to avoid flicker
-
+	const CLOSE_DELAY = 150;
 	const isInside = (el, target) => el && target && (el === target || el.contains(target));
 
+	// Helper: close both dropdowns
+	function closeAllDropdowns() {
+		if (dropdown) dropdown.classList.remove('open');
+		if (resourceDropdown) resourceDropdown.classList.remove('open');
+	}
+
+	// Resume Dropdown Functions
 	function openDropdown() {
+		closeAllDropdowns();
 		clearTimeout(closeTimer);
 		dropdown.classList.add('open');
 	}
-
 	function closeDropdown() {
 		clearTimeout(closeTimer);
 		dropdown.classList.remove('open');
 	}
-
 	function scheduleClose() {
 		clearTimeout(closeTimer);
 		closeTimer = setTimeout(() => dropdown.classList.remove('open'), CLOSE_DELAY);
 	}
 
-	// Click to toggle (useful for touch/mobile)
-	dropdownToggle.addEventListener('click', function (e) {
-		e.preventDefault();
-		if (dropdown.classList.contains('open')) closeDropdown();
-		else openDropdown();
-	});
+	// Resource Dropdown Functions
+	function openResourceDropdown() {
+		closeAllDropdowns();
+		clearTimeout(closeTimer);
+		resourceDropdown.classList.add('open');
+	}
+	function closeResourceDropdown() {
+		clearTimeout(closeTimer);
+		resourceDropdown.classList.remove('open');
+	}
+	function scheduleResourceClose() {
+		clearTimeout(closeTimer);
+		closeTimer = setTimeout(() => resourceDropdown.classList.remove('open'), CLOSE_DELAY);
+	}
 
-	// Use pointer events for consistent cross-device behavior
-	const enterHandler = (e) => {
-		// if pointer moved from an element inside toggle/dropdown, do nothing
-		openDropdown();
-	};
+	// Resume Dropdown Events
+	if (dropdownToggle && dropdown) {
+		dropdownToggle.addEventListener('click', function (e) {
+			e.preventDefault();
+			if (dropdown.classList.contains('open')) closeDropdown();
+			else openDropdown();
+		});
+		const enterHandler = (e) => { openDropdown(); };
+		const leaveHandler = (e) => {
+			const related = e.relatedTarget;
+			if (isInside(dropdown, related) || isInside(dropdownToggle, related)) return;
+			scheduleClose();
+		};
+		dropdownToggle.addEventListener('pointerenter', enterHandler);
+		dropdown.addEventListener('pointerenter', enterHandler);
+		dropdownToggle.addEventListener('pointerleave', leaveHandler);
+		dropdown.addEventListener('pointerleave', leaveHandler);
+	}
 
-	const leaveHandler = (e) => {
-		const related = e.relatedTarget;
-		// if moving to an element inside the toggle or dropdown, keep it open
-		if (isInside(dropdown, related) || isInside(dropdownToggle, related)) return;
-		// otherwise schedule a short close — this prevents flicker when crossing small gaps
-		scheduleClose();
-	};
+	// Resource Dropdown Events
+	if (resourceToggle && resourceDropdown) {
+		resourceToggle.addEventListener('click', function (e) {
+			e.preventDefault();
+			if (resourceDropdown.classList.contains('open')) closeResourceDropdown();
+			else openResourceDropdown();
+		});
+		const resourceEnterHandler = (e) => { openResourceDropdown(); };
+		const resourceLeaveHandler = (e) => {
+			const related = e.relatedTarget;
+			if (isInside(resourceDropdown, related) || isInside(resourceToggle, related)) return;
+			scheduleResourceClose();
+		};
+		resourceToggle.addEventListener('pointerenter', resourceEnterHandler);
+		resourceDropdown.addEventListener('pointerenter', resourceEnterHandler);
+		resourceToggle.addEventListener('pointerleave', resourceLeaveHandler);
+		resourceDropdown.addEventListener('pointerleave', resourceLeaveHandler);
+	}
 
-	dropdownToggle.addEventListener('pointerenter', enterHandler);
-	dropdown.addEventListener('pointerenter', enterHandler);
-
-	dropdownToggle.addEventListener('pointerleave', leaveHandler);
-	dropdown.addEventListener('pointerleave', leaveHandler);
-
-	// Close on outside click
+	// Close both dropdowns on outside click
 	document.addEventListener('click', function (e) {
-		if (!isInside(dropdown, e.target) && !isInside(dropdownToggle, e.target)) {
+		if (dropdown && dropdownToggle && !isInside(dropdown, e.target) && !isInside(dropdownToggle, e.target)) {
 			closeDropdown();
+		}
+		if (resourceDropdown && resourceToggle && !isInside(resourceDropdown, e.target) && !isInside(resourceToggle, e.target)) {
+			closeResourceDropdown();
+		}
+		// If clicking a nav item, close the other dropdown
+		if (dropdownToggle && resourceToggle) {
+			if (isInside(dropdownToggle, e.target)) {
+				closeResourceDropdown();
+			}
+			if (isInside(resourceToggle, e.target)) {
+				closeDropdown();
+			}
 		}
 	});
 

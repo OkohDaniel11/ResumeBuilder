@@ -166,13 +166,79 @@ nav ul li:hover a {
     color: #000;
 }
 
+
+/* Resource Dropdown Styles */
+.resource-dropdown {
+    height: 300px;
+    width: 85%;
+    position: relative;
+    top: 5%;
+    left: 8%;
+    border-radius: 50px;
+    background-color: white;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    display: flex;
+    z-index: 2000;
+    transform: translateY(-10px) scaleY(0.98);
+    opacity: 0;
+    pointer-events: none;
+    transform-origin: top center;
+    transition: transform 220ms cubic-bezier(.22,.98,.35,1),
+                opacity 180ms ease-in-out;
+}
+
+.resource-dropdown.open {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.resourceLast {
+    display: grid;
+    width: 500px;
+}
+
+.resourceLast ol {
+    list-style: none;
+    position: relative;
+    top: 8%;
+    left: 16%;
+}
+
+.resourceLast ol li {
+    padding: 8px 0px 8px 0px;
+    overflow: hidden;
+    width: 300px;
+}
+
+.resourceLast ol li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 30px;
+    transition: color 0.3s ease-in-out;
+}
+
+.GuruImages {
+    display: grid;
+    grid-template-columns: repeat(2, 0fr);
+    gap: 10px;
+    padding: 0 0 6px 0;
+}
+
+.GuruImages div {
+    height: 60px;
+    width: 70px;
+    border: 1px solid black;
+}
+
+
 /* We control open/close via the `.open` class added by JS */
 /* smoother open state: move less distance, fade in, and enable pointer events only when open */
 .dropdown {
     height: 300px;
     width: 85%;
     position: relative;
-    top: 5%;
+    top: -47%;
     left: 8%;
     border-radius: 50px;
     background-color: white;
@@ -196,7 +262,8 @@ nav ul li:hover a {
 /*Resume Dropdow Nav*/
 /* ...existing code... */
 
-.dropdown .NavHeader {
+.dropdown .NavHeader,
+.resource-dropdown .Resourceheader {
     font-family: 'Poppins', sans-serif;
     font-weight: 100;
     font-size: 2rem;
@@ -209,7 +276,8 @@ nav ul li:hover a {
     transition: color 0.3s ease;
 }
 
-.dropdown .NavHeader:after {
+.dropdown .NavHeader:after,
+.resource-dropdown .Resourceheader:after {
     content: "";
     position: absolute;
     left: 50%;
@@ -221,11 +289,13 @@ nav ul li:hover a {
     transition: width 0.3s ease;
 }
 
-.dropdown .NavHeader:hover:after {
+.dropdown .NavHeader:hover:after,
+.resource-dropdown .Resourceheader:hover:after {
     width: 100%; /* underline width on hover */
 }
 
-.dropdown .NavHeader:hover {
+.dropdown .NavHeader:hover,
+.resource-dropdown .Resourceheader:hover {
     color: red; /* text color on hover */
 }
 
@@ -268,7 +338,7 @@ nav ul li:hover a {
 
 .Firstdropdown ul li a .arrow,
 .Lastdropdown ul li a .arrow {
-  transform: translateX(1200%);   /* hidden to the right */
+  transform: translateX(1500%);   /* hidden to the right */
   transition: transform 0.2s ease-in-out;
   position: relative;
 }
@@ -338,18 +408,20 @@ nav ul li:hover a {
     transition: color 0.3s ease-in-out;
 }
 
-.Middledropdown ol li a:hover {
+.Middledropdown ol li a:hover,
+.resourceLast ol li a:hover {
     color: #c22c2c;
 }
 
-.Middledropdown ol li a .arrow {
-    transform: translateX(600%);   /* hidden to the right */
+.Middledropdown ol li a .arrow,
+.resourceLast ol li a .arrow {
+    transform: translateX(900%);   /* hidden to the right */
     transition: transform 0.3s ease-in-out;
     position: relative;
-    left: 5%;
 }
 
-.Middledropdown ol li a:hover .arrow {
+.Middledropdown ol li a:hover .arrow,
+.resourceLast ol li a:hover .arrow {
   transform: translateX(0);      /* slides in on hover */
   color: #c22c2c;
 }
