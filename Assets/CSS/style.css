@@ -682,6 +682,25 @@ nav ul li:hover a {
     bottom: 340px;
     left: 30px;
 }
+.homepagebottom .bottomHeader {
+    font-size: 60px;
+    text-align: center;
+    position: relative;
+    left: 30%;
+    width: 700px;
+}
+
+.bottomHeader span {
+    color: #FD0606;
+}
+
+.bottomLists {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: relative;
+    list-style: none;
+    gap: 8%;
+}
 
 /* ==========
     End of Home Page
