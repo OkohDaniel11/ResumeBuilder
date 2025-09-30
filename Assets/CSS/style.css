@@ -682,6 +682,7 @@ nav ul li:hover a {
     bottom: 340px;
     left: 30px;
 }
+
 .homepagebottom .bottomHeader {
     font-size: 60px;
     text-align: center;
@@ -700,6 +701,10 @@ nav ul li:hover a {
     position: relative;
     list-style: none;
     gap: 8%;
+}
+.bottomLists li {
+    padding: 10px;
+    font-size: 25px;
 }
 
 /* ==========
