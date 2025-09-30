@@ -688,6 +688,7 @@ nav ul li:hover a {
     text-align: center;
     position: relative;
     left: 30%;
+    bottom: 40px;
     width: 700px;
 }
 
@@ -705,7 +706,21 @@ nav ul li:hover a {
 .bottomLists li {
     padding: 10px;
     font-size: 25px;
+    color: #820002;
+    font-weight: bolder;
+    width: 400px;
 }
+
+.bottomLists li:last-child {
+    position: relative;
+    left: 50px;
+}
+
+.bottomLists li span {
+    color: black;
+    font-weight: lighter;
+}
+
 
 /* ==========
     End of Home Page
