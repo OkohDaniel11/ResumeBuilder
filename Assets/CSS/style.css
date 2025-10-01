@@ -3,6 +3,16 @@ body {
     margin: 0;
     background-color: #f2f2f2;
 }
+.floatUpDown {
+    animation: floatUpDown 3s ease-in-out infinite;
+}
+
+/* Keyframes for smooth up-down motion */
+@keyframes floatUpDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); } /* move up */
+    100% { transform: translateY(0); }   /* back down */
+}
 
 /*blur Animation*/
 .autoBlur {
