@@ -2,7 +2,47 @@ body {
     padding: 0;
     margin: 0;
     background-color: #f2f2f2;
-} 
+}
+
+/*blur Animation*/
+.autoBlur {
+    animation: autoBlurAnimationn linear both;
+    animation-timeline: view();
+}
+
+@keyframes autoBlurAnimationn {
+    0% {
+        filter: blur(40px);
+    }
+
+    40%,60% {
+        filter: blur(0px);
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    100% {
+        filter: blur(40px);
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+}
+
+/*AUTO DISLAY ANIMATION*/
+.autoDisplay {
+    animation: autoDisplay  both;
+    animation-timeline: view(70% 5%);
+}
+@keyframes autoDisplay {
+    from{
+        opacity: 0;
+        transform: translateY(-200px) scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
  
 /* ==========
     Start of Home Page
@@ -222,14 +262,21 @@ nav ul li:hover a {
     display: grid;
     grid-template-columns: repeat(2, 0fr);
     gap: 10px;
-    padding: 0 0 6px 0;
+    padding: 0 0 8px 0;
 }
 
 .GuruImages div {
-    height: 65px;
-    width: 100px;
-    border: 1px solid black;
+    height: 68px;
+    width: 80px;
     border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.GuruImages div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 
@@ -239,7 +286,7 @@ nav ul li:hover a {
     height: 300px;
     width: 85%;
     position: relative;
-    top: -47%;
+    top: -49.2%;
     left: 8%;
     border-radius: 50px;
     background-color: white;
@@ -455,7 +502,7 @@ nav ul li:hover a {
     font-size: 45px;
     text-align: justify;
     position: relative;
-    left: 40.2%;
+    left: 21.2%;
     transform: translateX(-50%);
     top: 15px;
     width: 740px;
@@ -651,11 +698,14 @@ nav ul li:hover a {
 
 .MiddleRight {
     position: relative;
+    
 }
 
 .MiddleRight article {
     position: relative;
     right: 480px;
+    width: 350px;
+    height: 750px;
 }
 
 .MiddleRight div {
@@ -664,6 +714,7 @@ nav ul li:hover a {
     height: 360px;
     width: 280px;
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .MiddleRight div:first-child {
