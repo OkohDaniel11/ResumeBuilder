@@ -30,6 +30,9 @@
 
         <!-- Local CSS -->
         <link rel="stylesheet" href="Assets/CSS/style.css">
+
+        <!-- AOS Animation Library -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         
         <!-- External CSS -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +44,9 @@
             <!--Top Section-->
             <section class="TopSection">
                 <!--Header Section-->
-                <header>
+                <header  data-aos="fade-down"
+                    data-aos-easing="linear"
+                    data-aos-duration="500">
                     <!--Logo-->
                     <div class="logo-container">
                         <a href="index.html" class="logo glass">
@@ -377,20 +382,20 @@
                 <!--Top Intro-->
                 <article class="Intro">
                     <!--Header-->
-                    <h1>
+                    <h1 >
                         Polish your resume into a
                         recruiter-ready <span>masterpiece</span> in no time.
                     </h1>
 
                     <!--Summary-->
-                    <p>
+                    <p data-aos="zoom-in-up">
                         Build recruiter-tested templates in minutes 
                         or improve your existing one! 
                         Our resume builder is powerful and easy to use.
                     </p>
 
                     <!--Create/Import Buttons-->
-                    <div class="IntroButtons">
+                    <div class="IntroButtons" data-aos="zoom-in-down">
                         <div>
                             <button class="glass buttons">Create Your Resume</button>
                         </div>
@@ -609,5 +614,9 @@
             </section>
         </main>
         <script src="Assets/JS/main.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
     </body>
 </html>
