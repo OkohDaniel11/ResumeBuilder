@@ -4,7 +4,7 @@ body {
     background-color: #f2f2f2;
 }
 .floatUpDown {
-    animation: floatUpDown 3s ease-in-out infinite;
+    animation: floatUpDown 8s ease-in-out infinite;
 }
 
 /* Keyframes for smooth up-down motion */
@@ -708,7 +708,6 @@ nav ul li:hover a {
 
 .MiddleRight {
     position: relative;
-    
 }
 
 .MiddleRight article {
