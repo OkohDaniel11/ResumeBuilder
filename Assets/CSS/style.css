@@ -765,12 +765,16 @@ nav ul li:hover a {
     left: 320px;
 }
 
+.homepagebottom .bottomHeader-container {
+    height: 100vh;
+    width: 100%;
+}
+
 .homepagebottom .bottomHeader {
     font-size: 60px;
     text-align: center;
     position: relative;
     left: 30%;
-    bottom: 40px;
     width: 700px;
 }
 
@@ -791,16 +795,29 @@ nav ul li:hover a {
     color: #820002;
     font-weight: bolder;
     width: 400px;
+    pointer-events: none;
 }
 
 .bottomLists li:last-child {
     position: relative;
     left: 670px;
+    bottom: 40px;
 }
 
 .bottomLists li span {
-    color: black;
+    color: rgba(0, 0, 0, 0.671);
     font-weight: lighter;
+}
+
+/*Fixed Scroll Info*/
+.scrollContainer {
+    height: 100vh;
+    width: 100%;
+}
+
+.scrolls {
+    height: 100vh;
+    width: 100%;
 }
 
 
