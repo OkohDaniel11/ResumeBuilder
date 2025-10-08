@@ -109,3 +109,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (e.key === 'Escape') closeDropdown();
 	});
 });
+
+const buttons = document.querySelectorAll('.toggledwn');
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const dropdown = btn.closest('div').querySelector('.drop');
+    dropdown.classList.toggle('show');
+    btn.classList.toggle('rotate');
+  });
+});

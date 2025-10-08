@@ -638,67 +638,81 @@ nav ul li:hover a {
 }
 
 .Hype h3 {
-    font-size: 60px;
+    font-size: 80px;
     color: #FD0606;
     width: 30%;
 }
+.Hype p {
+    font-size: 40px;
+    color: grey;
+    width: 30%;
+    text-transform: capitalize;
+}
 
-.Hype div:first-child h3 {
+.Hype .Hypebox:first-child h3 {
     position: relative;
     left: 20px;
     bottom: 50px;
 }
 
-.Hype div:first-child p {
+.Hype .Hypebox:nth-child(1) p {
     position: relative;
-    left: 50px;
-    bottom: 110px;
-    width: 300px;
-    font-size: 30px;
-    color: grey;
-    text-transform: capitalize;
+    left: 80px;
+    bottom: 130px;
 }
 
-.Hype div:nth-child(2) h3 {
+.Hype .Hypebox:nth-child(2) h3 {
     position: relative;
-    left: 160px;
-    bottom: 172px;
+    left: 140px;
+    bottom: 218px;
 }
 
-.Hype div:nth-child(2) p {
+.Hype .Hypebox:nth-child(2) p {
     position: relative;
-    left: 230px;
-    bottom: 230px;
-    width: 300px;
-    font-size: 30px;
-    color: grey;
-    text-transform: capitalize;
+    left: 250px;
+    bottom: 300px;
 }
 
-.Hype div:nth-child(3) h3 {
+.Hype .Hypebox:nth-child(3) h3 {
     position: relative;
-    left: 410px;
-    bottom: 290px;
+    left: 380px;
+    bottom: 380px;
 }
 
-.Hype div:nth-child(3) p {
+.Hype .Hypebox:nth-child(3) p {
     position: relative;
-    left: 470px;
-    bottom: 350px;
-    width: 300px;
-    font-size: 30px;
-    color: grey;
-    text-transform: capitalize;
+    left: 490px;
+    bottom: 480px;
 }
 
-.Hype div h3 button {
+.Hype .Hypebox h3 button {
     background: none;
     border: none;
     font-size: 40px;
     color: rgb(238, 169, 169);
 }
 
-.Hype div h3 button:hover {
+
+.Hype .Hypebox h3 button.rotate {
+  transform: rotate(45deg); /* turns + into × */
+}
+
+.drop {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+  color: #444;
+  font-size: 0.9rem;
+  padding-left: 5px;
+}
+
+.drop.show {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.Hype .Hypebox h3 button:hover {
     color: #FD0606;
     font-size: 45px;
     transition: 0.3s;
@@ -813,12 +827,55 @@ nav ul li:hover a {
 .scrollContainer {
     height: 100vh;
     width: 100%;
+    align-items: center;
+}
+
+.scrollHeaderBox {
+    text-align: center;
+    position: relative;
+}
+
+.scrollHeaderBox h2 {
+    font-size: 50px;
+}
+
+.scrollHeaderBox h2 span {
+    color: #FD0606;
+}
+
+.scrollHeaderBox p {
+    font-size: 30px;
+    color: grey;
+    width: 600px;
+    text-align: justify;
+    position: relative;
+    left: 32.1%;
 }
 
 .scrolls {
     height: 100vh;
-    width: 100%;
+    width: 80%;
+    position: relative;
+    top: 20%;
+    left: 10%;
+    border: #000 solid 1px;
+    padding: 10px;
 }
+
+.cardScroll {
+    height: 50vh;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+}
+
+.cardImg {
+    height: 100%;
+    width: 70%;
+    border: #000 solid 1px;
+    overflow: hidden;
+}
+
 
 
 /* ==========
