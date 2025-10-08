@@ -785,11 +785,11 @@ nav ul li:hover a {
 }
 
 .homepagebottom .bottomHeader {
-    font-size: 60px;
+    font-size: 70px;
     text-align: center;
     position: relative;
     left: 30%;
-    width: 700px;
+    width: 800px;
 }
 
 .bottomHeader span {
@@ -836,7 +836,7 @@ nav ul li:hover a {
 }
 
 .scrollHeaderBox h2 {
-    font-size: 50px;
+    font-size: 70px;
 }
 
 .scrollHeaderBox h2 span {
@@ -844,12 +844,12 @@ nav ul li:hover a {
 }
 
 .scrollHeaderBox p {
-    font-size: 30px;
+    font-size: 40px;
     color: grey;
-    width: 600px;
+    width: 800px;
     text-align: justify;
     position: relative;
-    left: 32.1%;
+    left: 25.1%;
 }
 
 .scrolls {
@@ -874,6 +874,22 @@ nav ul li:hover a {
     width: 70%;
     border: #000 solid 1px;
     overflow: hidden;
+}
+
+.cardText {
+    width: 60%;
+    padding: 20px;
+}
+.cardText h3 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.cardText p {
+    font-size: 30px;
+    line-height: 1.6;
+    color: grey;
+    width: 700px;
+    text-align: justify;
 }
 
 
