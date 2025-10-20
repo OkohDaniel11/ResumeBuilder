@@ -836,7 +836,7 @@ nav ul li:hover a {
 }
 
 .scrollHeaderBox h2 {
-    font-size: 70px;
+    font-size: 60px;
 }
 
 .scrollHeaderBox h2 span {
@@ -844,12 +844,13 @@ nav ul li:hover a {
 }
 
 .scrollHeaderBox p {
-    font-size: 40px;
+    font-size: 30px;
     color: grey;
-    width: 800px;
+    width: 750px;
     text-align: justify;
     position: relative;
-    left: 25.1%;
+    left: 28.6%;
+    bottom: 30px;
 }
 
 .scrolls {
@@ -867,6 +868,7 @@ nav ul li:hover a {
     display: flex;
     justify-content: space-between;
     position: sticky;
+    top: 10%;
 }
 
 .cardImg {
@@ -874,6 +876,7 @@ nav ul li:hover a {
     width: 70%;
     border: #000 solid 1px;
     overflow: hidden;
+    border-radius: 30px;
 }
 
 .cardText {
