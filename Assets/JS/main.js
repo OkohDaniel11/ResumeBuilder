@@ -119,3 +119,21 @@ buttons.forEach(btn => {
     btn.classList.toggle('rotate');
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".cardScroll");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible"); // fade in
+      } else {
+        entry.target.classList.remove("visible"); // fade out
+      }
+    });
+  }, {
+    threshold: 0.2 // Adjust sensitivity (0.2 = 20% visible)
+  });
+
+  cards.forEach(card => observer.observe(card));
+});

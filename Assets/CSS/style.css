@@ -779,6 +779,11 @@ nav ul li:hover a {
     left: 320px;
 }
 
+.homepagebottom {
+    width: 100%;
+    height: 150vh;
+}
+
 .homepagebottom .bottomHeader-container {
     height: 100vh;
     width: 100%;
@@ -825,7 +830,6 @@ nav ul li:hover a {
 
 /*Fixed Scroll Info*/
 .scrollContainer {
-    height: 100vh;
     width: 100%;
     align-items: center;
 }
@@ -869,6 +873,14 @@ nav ul li:hover a {
     justify-content: space-between;
     position: sticky;
     top: 10%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.cardScroll.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .cardImg {
@@ -895,7 +907,22 @@ nav ul li:hover a {
     text-align: justify;
 }
 
+/* ==========
+    Start of Footer
+    ========== */
 
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: #222;
+    display: flex;
+    justify-content: space-around;
+    gap: 20%;
+}
+
+/* ==========
+    End of Footer 
+    ========== */
 
 /* ==========
     End of Home Page
