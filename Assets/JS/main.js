@@ -120,33 +120,54 @@ buttons.forEach(btn => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".cardScroll");
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = Array.from(document.querySelectorAll('.cardScroll'));
+  const container = document.querySelector('.scrolls');
 
-  // Improved observer: only handle entries that become intersecting.
-  // When a card intersects we make it visible and softly fade its immediate neighbors.
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return; // ignore leave events to avoid transient blank states
+  if (!cards.length || !container) return;
 
-      const card = entry.target;
-      const index = [...cards].indexOf(card);
+  // ensure container has enough height so the sticky cards can be scrolled through
+  container.style.height = `${cards.length * 50}vh`;
 
-      // Clear visible/fade state for all cards first
-      cards.forEach(c => {
-        c.classList.remove("visible", "fade-out");
-      });
+  let ticking = false;
 
-      // Make the intersecting card visible
-      card.classList.add("visible");
-
-      // Fade immediate neighbors (previous and next) so transition looks smooth
-      if (index > 0) cards[index - 1].classList.add("fade-out");
-      if (index < cards.length - 1) cards[index + 1].classList.add("fade-out");
+  function setActive(index) {
+    cards.forEach((c, i) => {
+      c.classList.toggle('visible', i === index);
+      // fade-out only for immediate neighbors for smoother transitions
+      c.classList.toggle('fade-out', i !== index);
     });
-  }, {
-    threshold: 0.6
-  });
+  }
 
-  cards.forEach(card => observer.observe(card));
+  function updateActiveCard() {
+    const viewportCenter = window.innerHeight / 2;
+    let closestIndex = 0;
+    let closestDist = Infinity;
+
+    cards.forEach((card, i) => {
+      const rect = card.getBoundingClientRect();
+      const cardCenter = rect.top + rect.height / 2;
+      const dist = Math.abs(cardCenter - viewportCenter);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closestIndex = i;
+      }
+    });
+
+    setActive(closestIndex);
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(updateActiveCard);
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+
+  // initial activation
+  updateActiveCard();
 });
