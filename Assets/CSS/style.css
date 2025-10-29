@@ -832,6 +832,7 @@ nav ul li:hover a {
 .scrollContainer {
     width: 100%;
     align-items: center;
+    position: relative;
 }
 
 .scrollHeaderBox {
@@ -858,53 +859,65 @@ nav ul li:hover a {
 }
 
 .scrolls {
-    height: 100vh;
-    width: 80%;
     position: relative;
-    top: 20%;
-    left: 10%;
-    border: #000 solid 1px;
-    padding: 10px;
+    height: 400vh; /* Creates enough space to scroll */
+    width: 100%;
 }
 
 .cardScroll {
-    height: 50vh;
-    display: flex;
-    justify-content: space-between;
     position: sticky;
-    top: 10%;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 40px;
+    padding: 2rem;
     opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: scale(0.97);
+    transition: opacity 1s ease, transform 1s ease;
+    pointer-events: none;
 }
 
 .cardScroll.visible {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+    pointer-events: auto;
+}
+
+/* Fade out the previous one when the next one fades in */
+.cardScroll.fade-out {
+    opacity: 0;
+    transform: scale(0.96);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .cardImg {
-    height: 100%;
-    width: 70%;
-    border: #000 solid 1px;
+    width: 50%;
+    height: 70%;
     overflow: hidden;
-    border-radius: 30px;
+    border-radius: 20px;
 }
 
 .cardText {
-    width: 60%;
+    width: 45%;
     padding: 20px;
 }
+
 .cardText h3 {
     font-size: 40px;
     margin-bottom: 20px;
 }
+
 .cardText p {
-    font-size: 30px;
+    font-size: 24px;
     line-height: 1.6;
     color: grey;
-    width: 700px;
     text-align: justify;
+    max-width: 700px;
 }
 
 /* ==========
@@ -914,10 +927,11 @@ nav ul li:hover a {
 footer {
     width: 100%;
     height: 200px;
-    background-color: #222;
+    background: linear-gradient(to right, #F83E3E,  #922424 45%);
     display: flex;
     justify-content: space-around;
     gap: 20%;
+    position: relative;
 }
 
 /* ==========

@@ -123,16 +123,29 @@ buttons.forEach(btn => {
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".cardScroll");
 
+  // Improved observer: only handle entries that become intersecting.
+  // When a card intersects we make it visible and softly fade its immediate neighbors.
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible"); // fade in
-      } else {
-        entry.target.classList.remove("visible"); // fade out
-      }
+      if (!entry.isIntersecting) return; // ignore leave events to avoid transient blank states
+
+      const card = entry.target;
+      const index = [...cards].indexOf(card);
+
+      // Clear visible/fade state for all cards first
+      cards.forEach(c => {
+        c.classList.remove("visible", "fade-out");
+      });
+
+      // Make the intersecting card visible
+      card.classList.add("visible");
+
+      // Fade immediate neighbors (previous and next) so transition looks smooth
+      if (index > 0) cards[index - 1].classList.add("fade-out");
+      if (index < cards.length - 1) cards[index + 1].classList.add("fade-out");
     });
   }, {
-    threshold: 0.2 // Adjust sensitivity (0.2 = 20% visible)
+    threshold: 0.6
   });
 
   cards.forEach(card => observer.observe(card));
