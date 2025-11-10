@@ -844,11 +844,15 @@ nav ul li:hover a {
 }
 
 .scrollHeaderBox h2 {
-    font-size: 2.5rem;
+    font-size: 4rem;
+}
+
+.scrollHeaderBox h2 span {
+    color: #FD0606;
 }
 
 .scrollHeaderBox p {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     color: grey;
     line-height: 1.6;
 }
@@ -945,6 +949,7 @@ footer {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* ==== About Footer ==== */
 .aboutFooter {
     display: grid;
     position: absolute;
@@ -962,6 +967,7 @@ footer {
     padding: 10px;
 }
 
+/* ===== Boxes Footer ===== */
 .divBoxes {
     display: flex;
     gap: 12%;
@@ -981,6 +987,7 @@ footer {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+/*===== Social Links Footer =====*/
 .socialLinks {
     position: relative;
     bottom: -150px;
