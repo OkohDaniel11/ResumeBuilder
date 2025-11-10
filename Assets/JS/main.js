@@ -121,53 +121,70 @@ buttons.forEach(btn => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const cards = Array.from(document.querySelectorAll('.cardScroll'));
-  const container = document.querySelector('.scrolls');
+	const cards = Array.from(document.querySelectorAll('.cardScroll'));
+	const container = document.querySelector('.scrolls');
 
-  if (!cards.length || !container) return;
+	if (!cards.length || !container) return;
 
-  // ensure container has enough height so the sticky cards can be scrolled through
-  container.style.height = `${cards.length * 50}vh`;
+	// Each card gets 100vh of scroll height
+	container.style.height = `${cards.length * 100}vh`;
 
-  let ticking = false;
+	let ticking = false;
+	let lastIndex = -1;
 
-  function setActive(index) {
-    cards.forEach((c, i) => {
-      c.classList.toggle('visible', i === index);
-      // fade-out only for immediate neighbors for smoother transitions
-      c.classList.toggle('fade-out', i !== index);
-    });
-  }
+	function setActive(index, direction) {
+		cards.forEach((c, i) => {
+			c.classList.remove('visible', 'fade-out');
 
-  function updateActiveCard() {
-    const viewportCenter = window.innerHeight / 2;
-    let closestIndex = 0;
-    let closestDist = Infinity;
+			if (i === index) {
+				// current active
+				c.classList.add('visible');
+				c.style.zIndex = 2;
+			} else if (
+				(direction === 'down' && i < index) ||
+				(direction === 'up' && i > index)
+			) {
+				// fade out depending on scroll direction
+				c.classList.add('fade-out');
+				c.style.zIndex = 0;
+			} else {
+				c.style.zIndex = 1;
+			}
+		});
 
-    cards.forEach((card, i) => {
-      const rect = card.getBoundingClientRect();
-      const cardCenter = rect.top + rect.height / 2;
-      const dist = Math.abs(cardCenter - viewportCenter);
-      if (dist < closestDist) {
-        closestDist = dist;
-        closestIndex = i;
-      }
-    });
+		lastIndex = index;
+  	}
 
-    setActive(closestIndex);
-    ticking = false;
-  }
+	function updateActiveCard() {
+		const viewportCenter = window.innerHeight / 1;
+		let closestIndex = 0;
+		let closestDist = Infinity;
 
-  function onScroll() {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(updateActiveCard);
-    }
-  }
+		cards.forEach((card, i) => {
+			const rect = card.getBoundingClientRect();
+			const cardCenter = rect.top + rect.height / 1.8;
+			const dist = Math.abs(cardCenter - viewportCenter);
+			if (dist < closestDist) {
+				closestDist = dist;
+				closestIndex = i;
+			}
+		});
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
+		const direction = closestIndex > lastIndex ? 'down' : 'up';
+    	if (closestIndex !== lastIndex) setActive(closestIndex, direction);
 
-  // initial activation
-  updateActiveCard();
+    	ticking = false;
+	}
+
+	function onScroll() {
+	if (!ticking) {
+		ticking = true;
+		requestAnimationFrame(updateActiveCard);
+	}}
+
+	window.addEventListener('scroll', onScroll, { passive: true });
+	window.addEventListener('resize', onScroll);
+
+	// initial activation
+	updateActiveCard();
 });

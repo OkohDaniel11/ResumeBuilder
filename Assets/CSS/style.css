@@ -3,6 +3,7 @@ body {
     margin: 0;
     background-color: #f2f2f2;
 }
+
 .floatUpDown {
     animation: floatUpDown 6s ease-in-out infinite;
 }
@@ -781,7 +782,7 @@ nav ul li:hover a {
 
 .homepagebottom {
     width: 100%;
-    height: 150vh;
+    position: relative;
 }
 
 .homepagebottom .bottomHeader-container {
@@ -828,40 +829,35 @@ nav ul li:hover a {
     font-weight: lighter;
 }
 
-/*Fixed Scroll Info*/
+/* ===== SCROLL SECTION ===== */
+
 .scrollContainer {
-    width: 100%;
-    align-items: center;
     position: relative;
+    background: #f2f2f2;
+    padding-top: 100px;
 }
 
 .scrollHeaderBox {
     text-align: center;
-    position: relative;
+    max-width: 900px;
+    margin: 0 auto 100px auto;
 }
 
 .scrollHeaderBox h2 {
-    font-size: 60px;
-}
-
-.scrollHeaderBox h2 span {
-    color: #FD0606;
+    font-size: 2.5rem;
 }
 
 .scrollHeaderBox p {
-    font-size: 30px;
+    font-size: 1.2rem;
     color: grey;
-    width: 750px;
-    text-align: justify;
-    position: relative;
-    left: 28.6%;
-    bottom: 30px;
+    line-height: 1.6;
 }
 
+/* SCROLL ANIMATION CORE */
 .scrolls {
     position: relative;
-    height: 400vh; /* Creates enough space to scroll */
     width: 100%;
+    height: 400vh; /* 4 cards = 400% viewport height */
 }
 
 .cardScroll {
@@ -871,9 +867,8 @@ nav ul li:hover a {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
     gap: 40px;
-    padding: 2rem;
+    padding: 1rem;
     opacity: 0;
     transform: scale(0.97);
     transition: opacity 1s ease, transform 1s ease;
@@ -887,37 +882,42 @@ nav ul li:hover a {
     pointer-events: auto;
 }
 
-/* Fade out the previous one when the next one fades in */
 .cardScroll.fade-out {
     opacity: 0;
     transform: scale(0.96);
     z-index: 0;
     pointer-events: none;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .cardImg {
-    width: 50%;
-    height: 90%;
-    overflow: hidden;
+    width: 45%;
+    height: 70%;
     border-radius: 20px;
+    overflow: hidden;
+    background: #ccc;
+}
+
+.cardImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .cardText {
-    width: 45%;
-    padding: 20px;
+    width: 40%;
 }
 
 .cardText h3 {
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 .cardText p {
-    font-size: 24px;
+    font-size: 1.1rem;
     line-height: 1.6;
     color: grey;
     text-align: justify;
-    max-width: 700px;
 }
 
 /* ==========
@@ -926,12 +926,81 @@ nav ul li:hover a {
 
 footer {
     width: 100%;
-    height: 200px;
-    background: linear-gradient(to right, #F83E3E,  #922424 45%);
-    display: flex;
-    justify-content: space-around;
-    gap: 20%;
+    height: 600px;
+    background-color: #f2f2f2;
+    position: relative; /* not fixed or absolute */
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.footerContent {
+    background-color: #222;
+    width: 100%;
+    height: 320px;
     position: relative;
+    bottom: -280px;
+    left: 0;
+    display: flex;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.aboutFooter {
+    display: grid;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+
+.aboutFooter a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+    padding: 10px;
+}
+
+.divBoxes {
+    display: flex;
+    gap: 12%;
+    position: relative;
+    left: 32%;
+    top: -220px;
+    z-index: 2;
+    width: 60%;
+}
+
+.divBoxes div {
+    height: 380px;
+    width: 360px;
+    background-color: #444;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.socialLinks {
+    position: relative;
+    bottom: -150px;
+    left: 28%;
+    display: grid;
+    height: 40px;
+    color: #ffffff;
+}
+
+.socialLinks h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.socialLinks a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    margin-right: 20px;
+    transition: color 0.3s ease-in-out;
 }
 
 /* ==========
