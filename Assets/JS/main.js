@@ -188,3 +188,36 @@ document.addEventListener('DOMContentLoaded', () => {
 	// initial activation
 	updateActiveCard();
 });
+
+function AccessFunctions() {
+  const section = document.getElementById("accessibilitySection");
+  section.classList.toggle("hidden");
+}
+
+// Font Size
+const fontSizeRange = document.getElementById("fontSizeRange");
+fontSizeRange.addEventListener("input", e => {
+  document.body.style.fontSize = e.target.value + "px";
+});
+
+// High Contrast
+document.getElementById("contrastToggle").addEventListener("click", () => {
+  document.body.classList.toggle("high-contrast");
+});
+
+// Dyslexic Font
+document.getElementById("dyslexicFontToggle").addEventListener("click", () => {
+  document.body.classList.toggle("dyslexic-font");
+});
+
+// Highlight Links
+document.getElementById("highlightLinksToggle").addEventListener("click", () => {
+  document.body.classList.toggle("highlight-links");
+});
+
+// Reset
+document.getElementById("resetAccessibility").addEventListener("click", () => {
+  document.body.style.fontSize = "16px";
+  document.body.classList.remove("high-contrast", "dyslexic-font", "highlight-links");
+  fontSizeRange.value = 16;
+});

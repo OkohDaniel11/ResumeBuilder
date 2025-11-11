@@ -997,20 +997,20 @@ footer {
 
 /* Info panel (hidden initially) */
 .divBoxes .info {
-  position: absolute;
-  bottom: -100%; /* start hidden below the box */
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(109, 1, 1, 0.85);
-  border-radius: 20px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  text-align: justify;
-  transition: bottom 0.5s ease;
+    position: absolute;
+    bottom: -100%; /* start hidden below the box */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(109, 1, 1, 0.85);
+    border-radius: 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    text-align: justify;
+    transition: bottom 0.5s ease;
 }
 
 .info p {
@@ -1022,22 +1022,22 @@ footer {
 
 /* Reveal on hover */
 .divBoxes div:hover .info {
-  bottom: 0;
+    bottom: 0;
 }
 
 .divBoxes h2 {
-  position: relative;
-  top: 40%;
-  transform: translateY(-40%);
-  font-size: 24px;
-  color: #fff;
-  z-index: 1;
-  transition: opacity 0.4s ease;
+    position: relative;
+    top: 40%;
+    transform: translateY(-40%);
+    font-size: 24px;
+    color: #fff;
+    z-index: 1;
+    transition: opacity 0.4s ease;
 }
 
 /* Fade out the title when info slides up */
 .divBoxes div:hover  h2 {
-  opacity: 0;
+    opacity: 0;
 }
 
 /*=== Accessibility Button Footer ===*/
@@ -1068,6 +1068,74 @@ footer {
     backdrop-filter: blur(5px);
     border-radius: 12px;
     
+}
+
+/*=== Accessibility Section ===*/
+#accessibilitySection {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 250px;
+    background: #222;
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    z-index: 998;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+.accessibility-container h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.access-option {
+    margin-bottom: 15px;
+}
+
+.access-option label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.access-option button {
+    width: 100%;
+    padding: 6px;
+    border: none;
+    border-radius: 6px;
+    background: #555;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.access-option button:hover {
+    background: #777;
+}
+
+/* Accessibility Modes */
+.high-contrast {
+    background-color: black !important;
+    color: yellow !important;
+}
+
+.dyslexic-font * {
+    font-family: "OpenDyslexic", Arial, sans-serif !important;
+}
+
+.highlight-links a {
+    background: yellow;
+    color: black !important;
+    font-weight: bold;
 }
 
 /*===== Social Links Footer =====*/
