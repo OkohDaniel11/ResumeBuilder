@@ -1074,8 +1074,9 @@ footer {
 #accessibilitySection {
     position: fixed;
     bottom: 250px;
-    right: 20px;
-    width: 250px;
+    right: 70px;
+    width: 550px;
+    height: 550px;
     background: #222;
     color: white;
     border-radius: 15px;
