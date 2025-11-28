@@ -1073,7 +1073,7 @@ footer {
 /*=== Accessibility Section ===*/
 #accessibilitySection {
     position: fixed;
-    bottom: 80px;
+    bottom: 250px;
     right: 20px;
     width: 250px;
     background: #222;
@@ -1091,11 +1091,19 @@ footer {
     pointer-events: none;
 }
 
-.accessibility-container h3 {
-    margin-bottom: 15px;
-    font-size: 18px;
-    text-align: center;
+.AccessHeader {
+    display: flex;
+    justify-content: space-evenly;
 }
+
+.AccessHeader h3 {
+    margin-bottom: 15px;
+    font-size: 25px;
+    text-align: center;
+    position: relative;
+    right: 15px;
+}
+
 
 .access-option {
     margin-bottom: 15px;
