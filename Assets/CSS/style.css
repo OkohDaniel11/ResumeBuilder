@@ -1227,14 +1227,17 @@ footer {
         left: -24px;
     }
 
-    .Intro {
-        right: 125px
-        top
+    .homepageMiddlesection {
+        position: relative;
+        top: 70px;
+        right: 155px;
     }
 
     .Intro h1 {
         font-size: 28px;
         width: 680px;
+        position: relative;
+        top: 80px;
     }
 
     .Intro p {
