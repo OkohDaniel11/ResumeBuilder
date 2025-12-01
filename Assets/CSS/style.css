@@ -1227,11 +1227,14 @@ footer {
         left: -24px;
     }
 
+    .Intro {
+        right: 125px
+        top
+    }
+
     .Intro h1 {
-        font-size: 38px;
+        font-size: 28px;
         width: 680px;
-        left: 50%;
-        transform: translateX(-50%);
     }
 
     .Intro p {
