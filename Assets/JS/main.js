@@ -220,4 +220,4 @@ document.getElementById("resetAccessibility").addEventListener("click", () => {
   document.body.style.fontSize = "16px";
   document.body.classList.remove("high-contrast", "dyslexic-font", "highlight-links");
   fontSizeRange.value = 16;
-});
+}); 

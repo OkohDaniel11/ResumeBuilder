@@ -1208,16 +1208,300 @@ footer {
     ========== */
 
 /* Small laptops (1024px and below) */
-@media (max-width: 1024px) {
+@media (max-width: 1566px) {
+    /* Slightly reduce hero height and tighten spacing for small laptops */
+    .TopSection {
+        height: 55vh;
+    }
 
+    .logo-container {
+        position: relative;
+        right: 34%;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    nav ul li {
+        left: -24px;
+    }
+
+    .Intro h1 {
+        font-size: 38px;
+        width: 680px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .Intro p {
+        font-size: 20px;
+        width: 460px;
+        right: 240px;
+    }
+
+    .MiddleIntro {
+        bottom: 150px;
+    }
+
+    .sponsor-marquee {
+        width: 60%;
+    }
+
+    .MiddleRight article {
+        width: 580px;
+        right: 380px;
+    }
+
+    .homepagebottom .bottomHeader {
+        font-size: 60px;
+        left: 22%;
+        width: 720px;
+    }
+
+    .divBoxes {
+        left: 25%;
+        width: 65%;
+    }
 }
 
 /* Tablets (768px to 1024px) */
 @media (max-width: 768px) {
+    /* Tablet layout: stack and center content, enable hamburger */
+    .hamburger {
+        display: flex;
+    }
 
+    nav ul {
+        display: none;
+    }
+
+    .logo-container {
+        right: 10%;
+    }
+
+    .TopSection {
+        height: 48vh;
+        padding: 8px 12px;
+    }
+
+    .Intro {
+        flex-direction: column;
+        bottom: 200px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .Intro h1 {
+        position: static;
+        transform: none;
+        left: 0;
+        width: 92%;
+        font-size: 34px;
+        margin: 0 auto;
+    }
+
+    .Intro p {
+        position: static;
+        top: 0;
+        right: 0;
+        width: 92%;
+        font-size: 18px;
+        margin-top: 1rem;
+    }
+
+    .IntroButtons {
+        position: static;
+        top: 0;
+        right: 0;
+        gap: 1rem;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    .IntroButtons button {
+        width: 220px;
+        height: 52px;
+        font-size: 18px;
+    }
+
+    .MiddleIntro {
+        flex-direction: column;
+        bottom: 120px;
+    }
+
+    .MiddleLeft h2 {
+        left: 20px;
+        width: 80%;
+        font-size: 32px;
+    }
+
+    .sponsor-marquee {
+        width: 100%;
+        height: 120px;
+        right: 0;
+    }
+
+    .MiddleRight {
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+
+    .MiddleRight article {
+        right: 0;
+        width: 90%;
+        height: auto;
+        margin: 1rem auto;
+    }
+
+    .divBoxes {
+        flex-direction: column;
+        left: 10%;
+        width: 80%;
+        top: -150px;
+        gap: 1rem;
+    }
+
+    .divBoxes div {
+        width: 100%;
+        height: 300px;
+    }
+
+    #accessibilitySection {
+        right: 20px;
+        bottom: 150px;
+        width: 420px;
+        height: 420px;
+    }
+
+    footer {
+        height: auto;
+    }
 }
 
 /* Phones (up to 480px) */
 @media (max-width: 480px) {
+    /* Mobile adjustments: single-column stacking, larger touch targets */
+    .TopSection {
+        height: 42vh;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        padding: 8px;
+    }
 
+    .logo {
+        height: 42px;
+        width: 42px;
+    }
+
+    .logo-container {
+        right: 0;
+        left: 12px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .Intro {
+        bottom: 120px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Intro h1 {
+        font-size: 28px;
+        width: 100%;
+        left: 0;
+        transform: none;
+        text-align: center;
+    }
+
+    .Intro p {
+        font-size: 16px;
+        width: 100%;
+        position: static;
+        margin-top: 0.5rem;
+        right: 0;
+    }
+
+    .IntroButtons {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .IntroButtons button {
+        width: 90%;
+        max-width: 360px;
+    }
+
+    .MiddleIntro {
+        flex-direction: column;
+        bottom: 0;
+        padding: 1rem;
+    }
+
+    .sponsor-marquee {
+        display: none;
+    }
+
+    .Hype h3 { font-size: 36px; }
+    .Hype p { font-size: 20px; }
+
+    .MiddleRight article {
+        width: 100%;
+        right: 0;
+        margin: 0 auto;
+        height: auto;
+    }
+
+    .bottomLists {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        left: 0;
+    }
+
+    .bottomLists li {
+        width: 100%;
+        position: static;
+        left: 0;
+    }
+
+    .divBoxes {
+        left: 5%;
+        top: -120px;
+        width: 90%;
+        flex-direction: column;
+    }
+
+    .divBoxes div {
+        width: 100%;
+        height: 220px;
+    }
+
+    #accessibilitySection {
+        width: 320px;
+        height: 360px;
+        right: 10px;
+        bottom: 120px;
+    }
+
+    .socialLinks {
+        left: 10px;
+        bottom: -140px;
+    }
+
+    .scrollHeaderBox h2 { font-size: 2rem; }
+    .cardText h3 { font-size: 1.5rem; }
+    .cardText p { font-size: 1rem; }
 }
