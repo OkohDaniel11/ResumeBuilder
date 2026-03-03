@@ -1,3 +1,13 @@
+
+/// Location HREF
+const ResumeLoc = document.getElementById("linkpage");
+
+document.addEventListener('DOMContentLoaded', function() {
+	if (ResumeLoc) {
+		// ensure the anchor has the correct href (relative to index.html)
+		ResumeLoc.href = "./ResumeHtml/resumeEx.html";
+	}
+});
 // Dropdown behavior for ResumeBuilder
 document.addEventListener('DOMContentLoaded', function () {
 	// Resume Dropdown
@@ -50,6 +60,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Resume Dropdown Events
 	if (dropdownToggle && dropdown) {
 		dropdownToggle.addEventListener('click', function (e) {
+			// If the click originated on a real link with an href (not "#"), allow navigation
+			const anchor = e.target.closest && e.target.closest('a');
+			if (anchor && anchor.getAttribute('href') && anchor.getAttribute('href') !== '#') {
+				return; // let the browser follow the link
+			}
 			e.preventDefault();
 			if (dropdown.classList.contains('open')) closeDropdown();
 			else openDropdown();
