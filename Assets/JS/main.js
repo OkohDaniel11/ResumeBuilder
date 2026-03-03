@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (dropdown) dropdown.classList.remove('open');
 		if (resourceDropdown) resourceDropdown.classList.remove('open');
 	}
-
+ 
 	// Resume Dropdown Functions
 	function openDropdown() {
 		closeAllDropdowns();
