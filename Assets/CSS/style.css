@@ -2,7 +2,7 @@ body {
     padding: 0;
     margin: 0;
     background-color: #f2f2f2;
-}
+} 
 
 .floatUpDown {
     animation: floatUpDown 6s ease-in-out infinite;
@@ -72,6 +72,21 @@ body {
     border-bottom-right-radius: 3%;
 }
 .TopSection header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.ResumeTOP {
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    background: linear-gradient(to right, #F83E3E,  #922424 45%);
+    border-bottom-left-radius: 3%;
+    border-bottom-right-radius: 3%;
+}
+
+.ResumeTOP header {
     width: 100%;
     display: flex;
     justify-content: center;
