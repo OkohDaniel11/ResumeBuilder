@@ -1,11 +1,29 @@
-body {
+body { 
     padding: 0;
     margin: 0;
     background-color: #f2f2f2;
 }  
 
 .floatUpDown {
-    animation: floatUpDown 6s ease-in-out infinite;
+    position: relative;
+    animation: floatUpDown 6s ease-in infinite;
+    height: 400px; /* Adjust based on image height */
+}
+
+.floatUpDown img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.floatUpDown img:nth-child(1) {
+    animation: imageOpacity1 6s ease-in-out infinite;
+}
+
+.floatUpDown img:nth-child(2) {
+    animation: imageOpacity2 6s ease-in-out infinite;
 }
 
 /* Keyframes for smooth up-down motion */
@@ -13,6 +31,18 @@ body {
     0% { transform: translateY(0); }
     50% { transform: translateY(-20px); } /* move up */
     100% { transform: translateY(0); }   /* back down */
+}
+
+@keyframes imageOpacity1 {
+    0%, 45% { opacity: 1; }
+    45%, 55% { opacity: 0; }
+    55%, 100% { opacity: 0; }
+}
+
+@keyframes imageOpacity2 {
+    0%, 45% { opacity: 0; }
+    45%, 55% { opacity: 0.5; }
+    55%, 100% { opacity: 1; }
 }
 
 /*blur Animation*/
@@ -76,24 +106,6 @@ body {
     display: flex;
     justify-content: center;
     z-index: 2;
-}
-
-.ResumeTOP {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60%;
-    overflow: hidden;
-    background: linear-gradient(to right, #F83E3E,  #922424 45%);
-    border-bottom-left-radius: 3%;
-    border-bottom-right-radius: 3%;
-}
-
-.ResumeTOP {
-    width: 100%;
-    display: flex;
-    justify-content: center;
 }
 
 /* Logo */
@@ -965,7 +977,7 @@ footer {
 }
 
 .footerContent {
-    background: linear-gradient(to right, #F83E3E,  #922424 45%);
+    background:black;
     width: 100%;
     height: 320px;
     position: relative;
@@ -997,11 +1009,11 @@ footer {
 
 .divBoxes div {
     background: linear-gradient(
-        to right, #64f747,  
-        #f841f8, 
-        #34ccf1,
-        #dfe230,
-        #e6520e 99%);
+        to right, #040404,  
+        #0c0c0c, 
+        #070707,
+        #151414,
+        #121111 99%);
     position: relative; /* Important for .info positioning */
     height: 380px;
     width: 360px;
@@ -1017,11 +1029,11 @@ footer {
 /* Info panel (hidden initially) */
 .divBoxes .info {
     position: absolute;
-    bottom: -100%; /* start hidden below the box */
+    bottom: -110%; /* start hidden below the box */
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(109, 1, 1, 0.85);
+    background: rgba(211, 73, 73, 0.85);
     border-radius: 20px;
     color: #fff;
     display: flex;
@@ -1064,6 +1076,8 @@ footer {
     position: absolute;
     bottom: 190px;
     left: 85.4%;
+    background-color: white;
+    border-radius: 10px;
 }
 
 .accessibilityBtn {
