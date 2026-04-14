@@ -125,6 +125,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 });
 
+window.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.TopSections').classList.add('shrink');
+  });
+
 const buttons = document.querySelectorAll('.toggledwn');
 
 buttons.forEach(btn => {
