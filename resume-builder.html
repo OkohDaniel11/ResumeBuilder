@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your Resume</title>
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <main class="builder-page">
+        <header class="builder-header">
+            <a href="index.html" class="glass buttons">Back to Home</a>
+        </header>
+
+        <section class="builder-card">
+            <h1>Let's build your CV step by step</h1>
+            <p>Answer a few simple questions and we’ll help you create a stronger, recruiter-ready resume.</p>
+
+            <div class="step-indicator">
+                <span class="active">1. Basic Info</span>
+                <span>2. Career Focus</span>
+                <span>3. Experience</span>
+                <span>4. Skills</span>
+                <span>5. Review</span>
+            </div>
+
+            <form id="resumeBuilderForm">
+                <div class="form-step active" data-step="1">
+                    <div class="form-field">
+                        <label for="fullName">Full name</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="phone">Phone number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="jobTitle">Target role</label>
+                        <input type="text" id="jobTitle" name="jobTitle" placeholder="Product Manager, Software Engineer, etc." required>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="2">
+                    <div class="form-field">
+                        <label for="industry">Target industry</label>
+                        <select id="industry" name="industry">
+                            <option value="">Choose an industry</option>
+                            <option>Technology</option>
+                            <option>Finance</option>
+                            <option>Healthcare</option>
+                            <option>Education</option>
+                            <option>Marketing</option>
+                            <option>Customer Service</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="experienceLevel">Experience level</label>
+                        <select id="experienceLevel" name="experienceLevel">
+                            <option value="">Choose a level</option>
+                            <option>Entry level</option>
+                            <option>Mid level</option>
+                            <option>Senior level</option>
+                            <option>Manager / Director</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="careerGoal">What is your main resume goal?</label>
+                        <textarea id="careerGoal" name="careerGoal" placeholder="Example: Get an interview for a data analyst role" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="3">
+                    <div class="form-field">
+                        <label for="experienceSummary">Top achievement or experience</label>
+                        <textarea id="experienceSummary" name="experienceSummary" placeholder="Describe a recent accomplishment or key responsibility." required></textarea>
+                    </div>
+                    <div class="form-field">
+                        <label for="yearsExperience">Years of experience</label>
+                        <input type="text" id="yearsExperience" name="yearsExperience" placeholder="3 years, 5+ years, etc." required>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="4">
+                    <div class="form-field">
+                        <label for="skills">Key skills</label>
+                        <textarea id="skills" name="skills" placeholder="List your top skills separated by commas." required></textarea>
+                    </div>
+                    <div class="form-field">
+                        <label for="education">Highest qualification</label>
+                        <input type="text" id="education" name="education" placeholder="Bachelor's in Business, MSc Computer Science, etc." required>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="5">
+                    <div class="form-field">
+                        <label for="additionalInfo">Anything else to include?</label>
+                        <textarea id="additionalInfo" name="additionalInfo" placeholder="Awards, certifications, volunteer work, or personal strengths."></textarea>
+                    </div>
+                    <div class="builder-result" id="summaryCard" aria-live="polite" hidden>
+                        <h2>Your resume plan</h2>
+                        <p><strong>Name:</strong> <span id="resultName"></span></p>
+                        <p><strong>Target role:</strong> <span id="resultRole"></span></p>
+                        <p><strong>Industry:</strong> <span id="resultIndustry"></span></p>
+                        <p><strong>Experience level:</strong> <span id="resultLevel"></span></p>
+                        <ul>
+                            <li><strong>Goal:</strong> <span id="resultGoal"></span></li>
+                            <li><strong>Experience highlight:</strong> <span id="resultExperience"></span></li>
+                            <li><strong>Skills:</strong> <span id="resultSkills"></span></li>
+                            <li><strong>Education:</strong> <span id="resultEducation"></span></li>
+                        </ul>
+                        <p id="resultExtra"></p>
+                        <div class="builder-note">
+                            Use this plan to personalize your resume with achievements, clear skills, and a strong opening summary.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-controls">
+                    <button type="button" class="back-step glass buttons" id="prevStep">Back</button>
+                    <button type="button" class="next-step glass buttons" id="nextStep">Next</button>
+                    <button type="submit" class="submit-step glass buttons" id="submitButton" hidden>Finish</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="Assets/JS/builder.js"></script>
+</body>
+</html>
