@@ -1,5 +1,5 @@
 
-/// Location HREF
+/// Location HREF 
 const ResumeLoc = document.getElementById("linkpage");
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -126,8 +126,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.TopSections').classList.add('shrink');
+    const topSections = document.querySelector('.TopSections');
+    if (topSections) topSections.classList.add('shrink');
+    initCvRating();
   });
+
+/* Notes: initCvRating was added so CV star ratings become interactive.
+   This creates hover previews, click selection, keyboard support, and
+   preserves selected rating for each .cvRating container.
+*/
 
 const buttons = document.querySelectorAll('.toggledwn');
 
@@ -208,35 +215,164 @@ document.addEventListener('DOMContentLoaded', () => {
 	updateActiveCard();
 });
 
+// Rating persistence notes:
+// - Ratings are saved per card using a unique data-rating-id on each .cvRating container.
+// - Each click updates total and count in localStorage, then recomputes the average.
+const RATING_STORAGE_KEY = 'resumeBuilderCvRatings';
+
+function loadStoredRatings() {
+  try {
+    const raw = localStorage.getItem(RATING_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch (error) {
+    return {};
+  }
+}
+
+function saveStoredRatings(store) {
+  try {
+    localStorage.setItem(RATING_STORAGE_KEY, JSON.stringify(store));
+  } catch (error) {
+    // ignore storage errors
+  }
+}
+
+function getStoredRating(id) {
+  const stored = loadStoredRatings();
+  return stored[id] || { total: 0, count: 0 };
+}
+
+function saveUserRating(id, ratingValue) {
+  const stored = loadStoredRatings();
+  const record = stored[id] || { total: 0, count: 0 };
+  record.total += ratingValue;
+  record.count += 1;
+  stored[id] = record;
+  saveStoredRatings(stored);
+  return record;
+}
+
+function formatAverageText(record) {
+  if (!record.count) return 'No ratings yet';
+  const average = (record.total / record.count).toFixed(1);
+  return `Average ${average}/5 from ${record.count} rating${record.count === 1 ? '' : 's'}`;
+}
+
+function displayStarsForRating(stars, rating) {
+  const rounded = Math.round(Math.max(0, Math.min(5, rating)));
+  stars.forEach((star, index) => {
+    const isSelected = index < rounded;
+    star.classList.toggle('fa-solid', isSelected);
+    star.classList.toggle('fa-regular', !isSelected);
+    star.classList.toggle('selected', isSelected);
+    star.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+  });
+}
+
+function initCvRating() {
+  const ratingContainers = document.querySelectorAll('.cvRating');
+  if (!ratingContainers.length) return;
+
+  ratingContainers.forEach((container, containerIndex) => {
+    const ratingId = container.dataset.ratingId || `rating-${containerIndex + 1}`;
+    let record = getStoredRating(ratingId);
+    let currentAverage = record.count ? record.total / record.count : 0;
+
+    const stars = Array.from(container.querySelectorAll('i'));
+    let summary = container.nextElementSibling;
+    if (!summary || !summary.classList.contains('rating-summary')) {
+      summary = document.createElement('div');
+      summary.className = 'rating-summary';
+      container.insertAdjacentElement('afterend', summary);
+    }
+
+    const updateStars = (rating) => {
+      displayStarsForRating(stars, rating);
+      const rounded = Math.max(0, Math.min(5, Math.round(rating)));
+      container.setAttribute('aria-label', `Rated ${rounded} out of ${stars.length} stars`);
+    };
+
+    const updateSummary = () => {
+      summary.textContent = formatAverageText(record);
+    };
+
+    stars.forEach((star, index) => {
+      const ratingValue = index + 1;
+      star.setAttribute('role', 'radio');
+      star.setAttribute('tabindex', '0');
+      star.setAttribute('aria-label', `${ratingValue} star${ratingValue > 1 ? 's' : ''}`);
+
+      star.addEventListener('mouseenter', () => updateStars(ratingValue));
+      star.addEventListener('click', () => {
+        record = saveUserRating(ratingId, ratingValue);
+        currentAverage = record.total / record.count;
+        updateStars(currentAverage);
+        updateSummary();
+      });
+      star.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          record = saveUserRating(ratingId, ratingValue);
+          currentAverage = record.total / record.count;
+          updateStars(currentAverage);
+          updateSummary();
+        }
+      });
+    });
+
+    container.addEventListener('mouseleave', () => updateStars(currentAverage));
+    updateStars(currentAverage);
+    updateSummary();
+  });
+}
+
 function AccessFunctions() {
   const section = document.getElementById("accessibilitySection");
-  section.classList.toggle("hidden");
+  if (section) section.classList.toggle("hidden");
 }
+
+/* Notes: Added guard checks for DOM elements that may not exist on every page.
+   This prevents errors when loading main.js on pages with no accessibility controls.
+*/
 
 // Font Size
 const fontSizeRange = document.getElementById("fontSizeRange");
-fontSizeRange.addEventListener("input", e => {
-  document.body.style.fontSize = e.target.value + "px";
-});
+if (fontSizeRange) {
+  fontSizeRange.addEventListener("input", e => {
+    document.body.style.fontSize = e.target.value + "px";
+  });
+}
 
 // High Contrast
-document.getElementById("contrastToggle").addEventListener("click", () => {
-  document.body.classList.toggle("high-contrast");
-});
+const contrastToggle = document.getElementById("contrastToggle");
+if (contrastToggle) {
+  contrastToggle.addEventListener("click", () => {
+    document.body.classList.toggle("high-contrast");
+  });
+}
 
 // Dyslexic Font
-document.getElementById("dyslexicFontToggle").addEventListener("click", () => {
-  document.body.classList.toggle("dyslexic-font");
-});
+const dyslexicFontToggle = document.getElementById("dyslexicFontToggle");
+if (dyslexicFontToggle) {
+  dyslexicFontToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dyslexic-font");
+  });
+}
 
 // Highlight Links
-document.getElementById("highlightLinksToggle").addEventListener("click", () => {
-  document.body.classList.toggle("highlight-links");
-});
+const highlightLinksToggle = document.getElementById("highlightLinksToggle");
+if (highlightLinksToggle) {
+  highlightLinksToggle.addEventListener("click", () => {
+    document.body.classList.toggle("highlight-links");
+  });
+}
 
 // Reset
-document.getElementById("resetAccessibility").addEventListener("click", () => {
-  document.body.style.fontSize = "16px";
-  document.body.classList.remove("high-contrast", "dyslexic-font", "highlight-links");
-  fontSizeRange.value = 16;
-});
+const resetAccessibility = document.getElementById("resetAccessibility");
+if (resetAccessibility) {
+  resetAccessibility.addEventListener("click", () => {
+    document.body.style.fontSize = "16px";
+    document.body.classList.remove("high-contrast", "dyslexic-font", "highlight-links");
+    if (fontSizeRange) fontSizeRange.value = 16;
+  });
+}

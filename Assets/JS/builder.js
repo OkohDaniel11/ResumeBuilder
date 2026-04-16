@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const summaryCard = document.getElementById('summaryCard');
 
     let currentStep = 0;
-
+ 
     function updateStep() {
         steps.forEach((step, index) => {
             step.classList.toggle('active', index === currentStep);
