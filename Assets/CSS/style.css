@@ -1,8 +1,43 @@
+/* ========================================================================
+   CSS DOCUMENTATION & STRUCTURE GUIDE
+   ========================================================================
+   FILE: style.css
+   PURPOSE: Main stylesheet for CVNest (Resume Builder Application)
+   
+   MAJOR SECTIONS:
+   1. Global Styles & Body (Lines 1-90)
+   2. Animation Keyframes (Lines 6-80)
+      - floatUpDown, imageOpacity, autoBlur, autoDisplay
+   3. Homepage Header/Top Section (Lines 92-280)
+      - Logo, Navigation, Hamburger Menu, Glass Effect
+   4. Dropdown Menus - Resource & Resume (Lines 290-590)
+      - Resource Dropdown Styling
+      - Resume Dropdown Styling
+      - Arrow animations for dropdown items
+   5. Homepage Content Sections (Lines 600-920)
+      - Intro, Middle Section, Hype Box, Bottom Section
+   6. Scroll Animation Section (Lines 920-1000)
+   7. Footer Section (Lines 1010-1150)
+   8. Resume Examples Page (Lines 1160-1500)
+      - Resume heading & card layouts
+      - Arrow styling
+      - CV display boxes
+   9. Responsive Design & Utilities (Lines 1500-2038)
+      
+   ======================================================================== */
+
 body { 
     padding: 0;
     margin: 0;
     background-color: #f2f2f2;
 } 
+
+/* FLOAT & IMAGE ANIMATIONS */
+/* ============================================
+   PURPOSE: Floating text/image animations
+   START: Line 34 | END: Line 103
+   CLASSES: .floatUpDown, .autoBlur, .autoDisplay
+   ============================================ */
 
 .floatUpDown {
     position: relative;
@@ -149,7 +184,7 @@ body {
     border-radius: 60px;
 }
 
-/*Glass Funcion*/
+/*Glass Morphism Effect - Applied to logo, nav, buttons*/
 .glass {
     background: rgba(255, 255, 255, 0.15); /* transparent white */
     backdrop-filter: blur(10px); /* blur behind */
@@ -278,6 +313,15 @@ nav ul li:hover a {
     color: #000;
 }
 
+
+/* ==========================================
+   DROPDOWN MENUS - Resource & Resume
+   START: Line ~360 | END: Line ~620
+   PURPOSE: Dropdown styling for navigation
+   KEY CLASSES: .resource-dropdown, .dropdown,
+                .Firstdropdown, .Middledropdown,
+                .arrow (animations)
+   ============================================ */
 
 /* Resource Dropdown Styles */
 .resource-dropdown {
@@ -554,6 +598,15 @@ nav ul li:hover a {
 }
 
 /*End Resume Nav Dropdown*/
+
+/* ==========================================
+   HOMEPAGE - CONTENT SECTIONS
+   START: Line ~650 | END: Line ~950
+   PURPOSE: Main page content, hype boxes,
+            sponsor marquee, middle content
+   KEY CLASSES: .Intro, .MiddleIntro, .Hype,
+                .sponsor-marquee, .bottomLists
+   ============================================ */
 
 /*Article Section */
 
@@ -1412,17 +1465,77 @@ footer {
     left: 20px;
 }
 
-.headrCV div:nth-child(2) i {
-    font-size: 55px;
-    color: #7cb874;
+
+/* ==========================================
+   ARROW ANIMATIONS & STYLING
+   START: Line ~1474 | END: Line ~1550
+   PURPOSE: Decorative arrows for dropdowns
+   KEY CLASSES: .arrow (rotated 45deg square
+                with animated borders)
+   ANIMATION: Arrow slides in on hover with
+              scale & transform effects
+   ============================================ */
+
+.arrowsContainer {
     position: relative;
-    top: 70px;
-    right: 45px;
+    top: 35px;
+    right: 50px;
 }
 
-.headrCV div:nth-child(2) i{
+/* Arrow Core */
+.arrow {
+    position: relative;
+    top: 80px;
+    right: 25px;
+    width: 5vmin;
+    height: 5vmin;
+    box-sizing: border-box;
+    transform: rotate(45deg);
     cursor: pointer;
+    display: none;
 }
+
+/* Arrow Parts */
+.arrow::before,
+.arrow::after {
+    content: '';
+    position: absolute;
+    top: -70%;
+    left: -2%;
+    width: 100%;
+    height: 100%;
+    border-style: solid;
+    border-color: #7cb874;
+    transition: 0.2s ease;
+    display: block;
+    transform-origin: 100% 0;
+}
+
+.arrow::before {
+    border-width: 0.8vmin 0.8vmin 0 0;
+}
+
+.arrow::after {
+    border-width: 0 0.8vmin 0 0;
+    top: -62%;
+}
+
+/* Hover Effects */
+.arrow:hover::before {
+    border-color: #7cb874;
+    transform: scale(0.8);
+}
+
+.arrow:hover::after {
+    transform: rotate(45deg);
+    border-color: #7cb874;
+    height: 100%;
+    left: -5%;
+    top: -58%;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 3px;
+}
+
 
 .divCvFlex{
     display: flex;
@@ -1432,6 +1545,16 @@ footer {
     height: 85vh;
     overflow: hidden;
 }
+
+/* ==========================================
+   CV CARDS SECTION
+   START: Line ~1556 | END: Line ~1650+
+   PURPOSE: Styling for individual CV boxes
+   KEY CLASSES: .divCvFlex, .cvBox, .cvButtons,
+                .cvCardFlex
+   DESCRIPTION: Display multiple resume
+                templates in flex layout
+   ============================================ */
 
 /*== CVS Section ==*/
 
@@ -1447,7 +1570,6 @@ footer {
     position: relative;
     padding: 10px;
     left: 65%;
-    
 }
 
 .cvButtons button:nth-child(1),
@@ -1747,6 +1869,23 @@ Start of Media Queries
         width: 65%;
     }
 }
+
+/* ==========================================
+   RESPONSIVE DESIGN & MEDIA QUERIES
+   START: Line ~1859 | END: Line ~2070
+   PURPOSE: Mobile & tablet breakpoints
+   BREAKPOINTS:
+   - Desktop: 1025px+ (default)
+   - Laptop: 1024px to 1440px
+   - Tablet: 768px to 1024px
+   - Mobile: <768px
+   
+   KEY UPDATES: 
+   - Hide desktop nav, show hamburger
+   - Stack layouts vertically
+   - Adjust font sizes & spacing
+   - Optimize images for small screens
+   ============================================ */
 
 /* Tablets (768px to 1024px) */
 @media (max-width: 768px) {
