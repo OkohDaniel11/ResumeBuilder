@@ -1408,8 +1408,8 @@ footer {
     font-size: 60px;
     color: #7cb874;
     position: relative;
-    top: 70px;
-    left: 35px;
+    top: 61px;
+    left: 20px;
 }
 
 .headrCV div:nth-child(2) i {
@@ -1450,25 +1450,19 @@ footer {
     
 }
 
-.cvButtons button:nth-child(1) {
-    border: none;
-    background-color: #d81919b2;
-    border-radius: 10px;
-    width: 60px;
-    height: 40px;
-    text-transform: uppercase;
-    color: white;
-}
-
+.cvButtons button:nth-child(1),
 .cvButtons button:nth-child(2) {
     border: none;
-    background-color: #d81919b2;
+    background-color: #c0bdbdcf;
     border-radius: 10px;
     width: 60px;
     height: 40px;
     text-transform: uppercase;
-    color: white;
+    color: rgb(4, 4, 4);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .cvImage {
     border: 1px solid black;
