@@ -6,4 +6,4 @@ gsap.from(".ResumeTOP", {
   duration: 1.0,      // Animation length
   ease: "power2.out", // Smooth deceleration
   delay: 0.2          // Slight wait for the page to settle
-});
+}); 

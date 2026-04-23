@@ -1,7 +1,7 @@
 /* ========================================================================
    CSS DOCUMENTATION & STRUCTURE GUIDE
    ========================================================================
-   FILE: style.css
+   FILE: style.css 
    PURPOSE: Main stylesheet for CVNest (Resume Builder Application)
    
    MAJOR SECTIONS:
@@ -1430,7 +1430,7 @@ footer {
 }
 
 .headrCV{
-    height: 20vh;
+    height: 30vh;
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -1444,30 +1444,30 @@ footer {
 }
 
 .headrCV div:nth-child(1) p {
-    font-size: 50px;
+    font-size: 70px;
     position: relative;
     top: 20px;
     left: 20px;
     text-transform: capitalize;
     font-weight: bold;
     background: linear-gradient(
-    90deg, #d81919, #f32424,
-            #b42020, #b81f01);
+        to right, #d81919, #f32424,
+            #f62c2c, #b81f01,
+            #f65050, #ef6e54,
+            #13671b, #266503,
+            #25830b, #279a3c);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-size: 200%;
     background-clip: text;
-    background-size: 200% auto;
 
-    animation: shine 8s ease-in-out infinite;
+    animation: shine 2.5s linear infinite;
   
 }
 
 @keyframes shine {
-    from{
-        background-position: 100% center;
-    }
   to {
-    background-position: 200% center;
+    background-position: 200%;
   }
 }
 

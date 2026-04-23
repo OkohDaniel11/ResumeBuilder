@@ -1,7 +1,7 @@
 
 /// Location HREF 
 const ResumeLoc = document.getElementById("linkpage");
-
+ 
 document.addEventListener('DOMContentLoaded', function() {
 	if (ResumeLoc) {
 		// ensure the anchor has the correct href (relative to index.html)
