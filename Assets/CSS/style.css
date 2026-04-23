@@ -1451,17 +1451,17 @@ footer {
     text-transform: capitalize;
     font-weight: bold;
     background: linear-gradient(
-        to right, #d81919, #f32424,
+        to right, #d81919, #f53131,
             #f62c2c, #b81f01,
-            #f65050, #ef6e54,
-            #13671b, #266503,
-            #25830b, #279a3c);
+            #f65050, #fe4c28,
+            #b81f01, #f65050,
+            #fe4c28, #b81f01);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200%;
     background-clip: text;
 
-    animation: shine 2.5s linear infinite;
+    animation: shine 30s linear infinite;
   
 }
 
@@ -1472,10 +1472,10 @@ footer {
 }
 
 .headrCV div:nth-child(1) i {
-    font-size: 60px;
+    font-size: 90px;
     color: #7cb874;
     position: relative;
-    top: 61px;
+    top: 70px;
     left: 20px;
 }
 
