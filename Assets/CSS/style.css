@@ -1471,12 +1471,34 @@ footer {
   }
 }
 
+@keyframes glowPulse {
+  from {
+    text-shadow:
+      0 0 6px rgba(108, 255, 143, 0.6),
+      0 0 14px rgba(108, 255, 143, 0.4);
+  }
+  to {
+    text-shadow:
+      0 0 10px rgba(108, 255, 143, 0.8),
+      0 0 24px rgba(108, 255, 143, 0.5);
+  }
+}
+
 .headrCV div:nth-child(1) i {
     font-size: 90px;
-    color: #7cb874;
+    color: #59bb70;
     position: relative;
     top: 70px;
     left: 20px;
+
+    text-shadow:
+        0 0 8px rgba(108, 255, 143, 0.7),
+        0 0 20px rgba(108, 255, 143, 0.35),
+        0 0 40px rgba(108, 255, 143, 0.2);
+
+    transform: translateZ(0); /* smooth rendering */
+
+    animation: glowPulse 1s ease-in-out infinite alternate;
 }
 
 
@@ -1550,14 +1572,18 @@ footer {
     border-bottom-right-radius: 3px;
 }
 
+.cvWrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
 
 .divCvFlex{
     display: flex;
-    justify-content: space-evenly;
     gap: 20px;
-    width: 100%;
-    height: 85vh;
-    overflow: hidden;
+    height: 80vh;
+    transition: transform 0.5s ease;
+    width: max-content;
 }
 
 /* ==========================================
@@ -1573,8 +1599,8 @@ footer {
 /*== CVS Section ==*/
 
 .cvBox {
-    width: 400px;
-    height: 90%;
+    width: 320px;
+    height: 80%;
     border-radius: 20px;
     overflow: hidden;
     padding: 15px;
@@ -1583,19 +1609,26 @@ footer {
 .cvButtons{
     position: relative;
     padding: 10px;
-    left: 65%;
+    left: 60%;
 }
 
 .cvButtons button:nth-child(1),
 .cvButtons button:nth-child(2) {
     border: none;
-    background-color: #c0bdbdcf;
+    background-color: #f7050598;
     border-radius: 10px;
     width: 60px;
     height: 40px;
     text-transform: uppercase;
-    color: rgb(4, 4, 4);
+    color: rgb(252, 252, 252);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.cvButtons button:nth-child(1):hover,
+.cvButtons button:nth-child(2):hover {
+    background-color: #f70505;
+    cursor: pointer;
 }
 
 
@@ -1654,13 +1687,55 @@ footer {
     margin-top: 8px;
     font-size: 0.95rem;
     color: #1c1c1c7d;
-    text-align: center;
+    text-align: left;
     line-height: 1.4;
     position: relative;
-    right: 110px;
     top: 5px;
 }
 
+/* Click Next Buttons*/
+.MostpopButton {
+    position: relative;
+    top: -65px;
+    height: 60px;
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+}
+
+.MostpopButton div {
+    border: 4px solid rgb(228, 27, 27) ;
+    padding: 10px;
+    border-radius: 50px;
+    height: 10px;
+    width: 10px;
+    position: relative;
+    top: 10px;
+    left: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.MostpopButton div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: red;
+    transition: width 0.3s ease;
+    z-index: 0;
+}
+
+/* hover effect */
+.MostpopButton div:hover::before {
+    width: 100%;
+}
+
+.MostpopButton div.active::before {
+    width: 100%;
+}
 /* ==========
     Resume Builder Page
     ========== */

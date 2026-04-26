@@ -1,5 +1,5 @@
 
-/// Location HREF 
+/// Location HREF
 const ResumeLoc = document.getElementById("linkpage");
  
 document.addEventListener('DOMContentLoaded', function() {
@@ -324,6 +324,22 @@ function initCvRating() {
     updateStars(currentAverage);
     updateSummary();
   });
+}
+let currentSlide = 0;
+
+function MTPOne(index) {
+    const track = document.querySelector(".divCvFlex");
+    const dots = document.querySelectorAll(".MostpopButton div");
+
+    currentSlide = index;
+
+    // move slides (320px card + gap approximation)
+    const offset = index * -750;
+    track.style.transform = `translateX(${offset}px)`;
+
+    // update dots
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[index].classList.add("active");
 }
 
 function AccessFunctions() {
