@@ -1753,24 +1753,34 @@ footer {
 }
 
 .catButtons  button {
+    padding: 10px;
     border-radius: 20px;
     border: none; 
     background-color: #9a9696b2;
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     cursor: pointer;
-    width: 120px;
-    height: 60px;
+    width: 130px;
+    height: 50px;
     overflow: hidden;
     text-transform: capitalize; 
     transition: background-color 0.3s;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease-in-out;
+}
+
+.catButtons  button:hover{
+    transform: translateX(-3%) translateY(-10%);
+    color: black;
 }
 
 .AllCateg {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
 }
 /* ==========
     Resume Builder Page
