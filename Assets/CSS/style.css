@@ -3,7 +3,7 @@
    ========================================================================
    FILE: style.css 
    PURPOSE: Main stylesheet for CVNest (Resume Builder Application)
-   
+
    MAJOR SECTIONS:
    1. Global Styles & Body (Lines 1-90)
    2. Animation Keyframes (Lines 6-80)
@@ -1735,6 +1735,42 @@ footer {
 
 .MostpopButton div.active::before {
     width: 100%;
+}
+
+.middleHeader h2{
+    font-size: 90px;
+    text-transform: capitalize;
+    padding: 10px;
+    font-weight: 100;
+}
+
+.catButtons {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    position: relative;
+    bottom: 75px;
+}
+
+.catButtons  button {
+    border-radius: 20px;
+    border: none; 
+    background-color: #9a9696b2;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    width: 120px;
+    height: 60px;
+    overflow: hidden;
+    text-transform: capitalize; 
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.AllCateg {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 /* ==========
     Resume Builder Page
